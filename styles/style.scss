@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+	width: 100%;
+	min-height: 100vh;
+	color: #212121;
+	background-color: hsl(0, 0%, 95%);
+}
+.app {
+	width: 100%;
+	padding: 0 20vw;
+}
+
+.result-container {
+	padding-left: 25px;
+	padding-right: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	background-color: #fff;
+
+	#password-result {
+		background-color: transparent;
+		padding: 20px 10px;
+		font-size: 1.25rem;
+		width: 90%;
+		outline: 0;
+		border: 0;
+	}
+	.icon {
+		cursor: pointer;
+		color: #999;
+		font-size: 1.5rem;
+		padding-left: 10px;
+		padding-right: 10px;
+		transition: .3s;
+		&:hover {
+			color: #212121;
+		}
+	}
+}
+
+#password-security {
+	outline: 0;
+	border: 0;
+	width: 100%;
+	height: 10px;
+	transition: .5s;
+	background-color: #fff;
+}
+
+section {
+	display: flex;
+	margin-top: 10px;
+	padding: 20px;
+	background-color: #fff;
+}
+#password-length-container,
+#option-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	& #password-length {
+		cursor: pointer;
+		height: 30%;
+		border-radius: 5px;
+		background-color: hsl(0, 0%, 90%);
+		appearance: none;
+
+		&::-webkit-slider-thumb {
+			appearance: none;
+			background-color: #212121;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+		}
+	}
+}
+
+.spin {
+	animation: spin 1s linear infinite;
+}
+@keyframes spin {
+	0% {
+		 transform: rotate(0deg);
+	}
+	100% {
+		 transform: rotate(360deg);
+	}
+}
