@@ -1,74 +1,63 @@
 let charset = ""
 let passwordResult = ""
-const INPUT_RANGE = document.querySelector("#password-length")
-const REFRESH_BUTTON = document.querySelector("#refresh-button")
-const COPY_BUTTON = document.querySelector("#copy-button")
-const INPUT_RESULT = document.querySelector("#password-result")
+
+const INPUT_RESULT = document.querySelector("#result-input")
 const LABEL_VALUE = document.querySelector("#input-value")
-const PASSWORD_SECURITY = document.querySelector("#password-security")
 
-let charsetUpperCase = document.querySelector("#charset-uppercase")
-let charsetLowerCase = document.querySelector("#charset-lowercase")
-let charsetNumber = document.querySelector("#charset-number")
-let charsetSymbol = document.querySelector("#charset-symbol")
+const INPUT_RANGE = document.querySelector("#range-selector")
+INPUT_RANGE.addEventListener("input", CREATE_PASSWORD)
 
-INPUT_RANGE.addEventListener("input", createPassword)
-REFRESH_BUTTON.addEventListener("click", () => {
-	REFRESH_BUTTON.classList.add("spin")
-	setTimeout(()=>{
-		REFRESH_BUTTON.classList.remove("spin")
-		createPassword()
-	}, 500)
-	
-})
+const BUTTON_CREATE = document.querySelector('#create-btn');
+BUTTON_CREATE.addEventListener('click', CREATE_PASSWORD);
 
-COPY_BUTTON.addEventListener("click", ()=>{
-
-})
-
-function copyClipboard(){
-	if (passwordResult !== ""){
-		navigator.clipboard.writeText(passwordResult);
-		console.log(passwordResult);
-	} else {
-		
+const BUTTON_COPY = document.querySelector('#copy-btn');
+BUTTON_COPY.addEventListener('click', () => {
+	if (INPUT_RESULT.value == "") {
+		ALERT_MSG("error", "Result is blank, please firstly create password!")
 	}
-}
+	else {
+		navigator.clipboard.writeText(INPUT_RESULT.value);
+		ALERT_MSG("success", `${INPUT_RESULT.value} has been copied to clipboard!`)
+	}
+})
 
-function createPassword() {
-	passwordResult = ""
-	if (INPUT_RANGE.value == null) PASSWORD_SECURITY.style.width = "100%"
-	if (charsetUpperCase.checked == true) charset += "QWERTYUIOPASDFGHJKLZXCVBNM"
-	if (charsetLowerCase.checked == true) charset += "qwertyuiopasdfghjklzxcvbnm"
-	if (charsetNumber.checked == true) charset += "1234567890"
-	if (charsetSymbol.checked == true) charset += "~!@#$%^&*())_+=-/<>?"
+document.addEventListener("DOMContentLoaded", CREATE_PASSWORD());
+function CREATE_PASSWORD() {
+	const CHARSET = {
+		uppercase: document.querySelector("#charset-uppercase").checked,
+		lowercase: document.querySelector("#charset-lowercase").checked,
+		number: document.querySelector("#charset-number").checked,
+		symbol: document.querySelector("#charset-symbol").checked
+	}
 
-	for (let i = 0; i < INPUT_RANGE.value; i++){
+	if (CHARSET.uppercase === true) { charset += "QWERTYUIOPASDFGHJKLZXCVBNM" }
+	if (CHARSET.lowercase === true) { charset += "qwertyuiopasdfghjklzxcvbnm" }
+	if (CHARSET.number === true) { charset += "1234567890" }
+	if (CHARSET.symbol === true) { charset += "~!@#$%^&*())_+=-/<>?" }
+
+	for (let i = 0; i < INPUT_RANGE.value; i++) {
 		passwordResult += charset.charAt(Math.floor(Math.random() * charset.length))
 	}
-	if (INPUT_RANGE.value < 8) {
-		PASSWORD_SECURITY.style.backgroundColor = "#e74c3c"
-		PASSWORD_SECURITY.style.width = "20%"
-	} else if (INPUT_RANGE.value < 16) {
-		PASSWORD_SECURITY.style.backgroundColor = "#f1c40f"
-		PASSWORD_SECURITY.style.width = "50%"
-	} else {
-		PASSWORD_SECURITY.style.backgroundColor = "#2ecc71"
-		PASSWORD_SECURITY.style.width = "100%"
-	}
-	INPUT_RESULT.value = passwordResult
-	LABEL_VALUE.textContent = INPUT_RANGE.value 
-	charset = ""
-} 
 
-function saveToList(password, security, createdDate) {
-	let passwordList = []
-    if (localStorage.getItem("passwords") === null) { passwordList = [] } 
-    else { passwordList = JSON.parse(localStorage.getItem("passwords")) }
-    passwordList.push({
-        "Password": password,
-        "is it Strong": security,
-        "Created Date": createdDate
-    })
-    localStorage.setItem("passwords", JSON.stringify(passwordList))
+	INPUT_RESULT.value = passwordResult
+	LABEL_VALUE.textContent = INPUT_RANGE.value
+	passwordResult = "";
+	charset = "";
+}
+
+function ALERT_MSG(type, msg) {
+    if (document.querySelector("#notification") !== null) {
+        document.querySelector("#notification").remove()
+    }
+    let divElement = document.createElement("DIV")
+    document.body.append(divElement)
+    divElement.id = "notification"
+    divElement.classList.add("alert", `${type}`)
+    divElement.innerText = msg
+    divElement.style.opacity = "1"
+    setTimeout(() => {
+        divElement.style.opacity = "0"
+        divElement.style.display = "none"
+        divElement.remove()
+    }, 2500)
 }
