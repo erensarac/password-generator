@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Coded by Eren Saraç -->
 <html>
 <head>
 	<title>Password Generator</title>
@@ -7,43 +8,108 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=7" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
-	<link rel="stylesheet" href="styles/style.css" />
+	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 	<main class="app">
-		<h1 id="main-title"> Generate Password</h1>
-		<p id="main-desc"> Random and strong password generator online and you can save passwords </p>
-		<input id="result-input" type="text" disabled>
-		<section>
-			<div id="length-container">
-				<p> Length: </p>
-				<span id="input-value"> 8 </span>
-				<input type="range" name="passwordLength" id="range-selector" value="8" min="4" max="32" />
-			</div>
-			<div id="option-container">
-				<label for="charset-uppercase">
-					<input checked type="checkbox" id="charset-uppercase">
-					Uppercase
-				</label>
-				<label for="charset-lowercase">
-					<input checked type="checkbox" id="charset-lowercase">
-					Lowercase
-				</label>
-				<label for="charset-symbol">
-					<input checked type="checkbox" id="charset-symbol">
-					Symbols
-				</label>
-				<label for="charset-number">
-					<input checked type="checkbox" id="charset-number">
-					Numbers
-				</label>
-			</div>
-			<div class="button-container">
-				<button id="create-btn">Create Password</button>
-				<button id="copy-btn">Copy</button>
-			</div>
+		<section id="password-generator">
+			<section>
+				<h1 id="main-title"><strong>Generate</strong>Password</h1>
+				<p id="main-desc"> Random and strong password generator online and you can save passwords </p>
+				<input id="result-input" type="text" disabled>
+				<div id="length-container">
+					<p> Length: </p>
+					<span id="input-value"> 8 </span>
+					<input type="range" name="passwordLength" id="range-selector" value="8" min="4" max="32" />
+				</div>
+				<div id="option-container">
+					<label for="charset-uppercase">
+						<input checked type="checkbox" id="charset-uppercase">
+						Uppercase
+					</label>
+					<label for="charset-lowercase">
+						<input checked type="checkbox" id="charset-lowercase">
+						Lowercase
+					</label>
+					<label for="charset-symbol">
+						<input checked type="checkbox" id="charset-symbol">
+						Symbols
+					</label>
+					<label for="charset-number">
+						<input checked type="checkbox" id="charset-number">
+						Numbers
+					</label>
+				</div>
+				<div class="button-container">
+					<button id="create-btn">Generate</button>
+					<button id="copy-btn">Copy</button>
+				</div>
+			</section>
+		</section>
+		<section id="password-tips">
+			<header>
+				<h2>Password Tips</h2>
+				<i class="ri-arrow-down-s-line accordion-btn"></i>
+			</header>
+			<ol id="tip-list">
+				<li>
+					Always use a unique password for each account you create. The danger with reusing passwords is that
+					as soon as one site has a security issue, it‘s very easy for hackers to try the same username and
+					password combination on other websites.
+				</li>
+				<li>
+					Don’t use any personally identifiable information in your passwords. Names, birthdays, and street
+					addresses may be easy to remember but they’re also easily found online and should always be avoided
+					in passwords to ensure the greatest strength.
+				</li>
+				<li>
+					Make sure your passwords are at least <b>12 characters</b> long and contain letters, numbers, and
+					special characters. Some people prefer to generate passwords which are <b>14 or 20</b> characters in
+					length.
+				</li>
+				<li>
+					If you’re creating a master password that you’ll need to remember, try using phrases or lyrics from
+					your favorite movie or song. Just add random characters, but don't replace them in easy patterns.
+				</li>
+				<li>
+					Use a password manager like LastPass to save your passwords. We keep your information protected from
+					attacks or snooping.
+				</li>
+				<li>Avoid weak, commonly used passwords like <b>asd123</b>, password1, or Temp!. Some examples of a strong
+					password include: <b>S&2x4S12nLS1*</b>, <b>JANa@sx3l2&s$</b>, <b>49915w5$oYmH.</b>
+				</li>
+				<li>
+					Avoid using personal information for your security questions, instead, use LastPass to generate
+					another “password" and store it as the answer to these questions. The reason? Some of this
+					information, like the name of the street you grew up on or your mother’s maiden name, is easily
+					found by hackers and can be used in a brute-force attack to gain access to your accounts.
+				</li>
+				<li>
+					Avoid using similar passwords that change only a single word or character. This practice weakens
+					your account security across multiple sites.
+				</li>
+				<li>
+					Change your passwords when you have reason to , such as after you've shared them with someone, after
+					a website has had a breach, or if it's been over a year since you last rotated it.
+				</li>
+				<li>
+					You should never share your passwords via email or text message. The secure way to share is with a
+					tool like LastPass that gives you the ability to share a hidden password and even revoke access when
+					the time comes.
+				</li>
+			</ol>
+		</section>
+		<section id="save-passwords">
+			<header>
+				<h2>Save Password</h2>
+				<i class="ri-arrow-down-s-line accordion-btn"></i>
+			</header>
+			<ul>
+				<li>bp>yM#>VB)i7Lx?m^ny6&kt=AX0cY*o~</li>
+			</ul>
 		</section>
 	</main>
 	<script src="./script/app.js"></script>
+	<script src="./script.js"></script>
 </body>
 </html>
