@@ -7,16 +7,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=7" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="shortcut icon" href="./images/icons/favicon.ico" type="image/x-icon">
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
-	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 	<main class="app">
 		<section id="password-generator">
 			<section>
-				<h1 id="main-title"><strong>Generate</strong>Password</h1>
+				<h1 id="main-title"><strong>Password</strong>Generator</h1>
 				<p id="main-desc"> Random and strong password generator online and you can save passwords </p>
-				<input id="result-input" type="text" disabled>
+				<input placeholder="Your password will be here." id="result-input" type="text" disabled>
 				<div id="length-container">
 					<p> Length: </p>
 					<span id="input-value"> 8 </span>
@@ -101,7 +102,7 @@
 		</section>
 		<section id="save-passwords">
 			<header>
-				<h2>Save Password</h2>
+				<h2>Saved Password</h2>
 				<i class="ri-arrow-down-s-line accordion-btn"></i>
 			</header>
 			<ul>
@@ -109,7 +110,6 @@
 			</ul>
 		</section>
 	</main>
-	<script src="./script/app.js"></script>
 	<script src="./script.js"></script>
 </body>
 </html>
