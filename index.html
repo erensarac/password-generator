@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<!-- Coded by Eren Saraç -->
-<html>
+<html lang="en">
 <head>
-	<title>Password Generator</title>
+	<title>passwordGenerator</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=7" />
@@ -14,38 +13,36 @@
 <body>
 	<main class="app">
 		<section id="password-generator">
-			<section>
-				<h1 id="main-title"><strong>Password</strong>Generator</h1>
-				<p id="main-desc"> Random and strong password generator online and you can save passwords </p>
-				<input placeholder="Your password will be here." id="result-input" type="text" disabled>
-				<div id="length-container">
-					<p> Length: </p>
-					<span id="input-value"> 8 </span>
-					<input type="range" name="passwordLength" id="range-selector" value="8" min="4" max="32" />
-				</div>
-				<div id="option-container">
-					<label for="charset-uppercase">
-						<input checked type="checkbox" id="charset-uppercase">
-						Uppercase
-					</label>
-					<label for="charset-lowercase">
-						<input checked type="checkbox" id="charset-lowercase">
-						Lowercase
-					</label>
-					<label for="charset-symbol">
-						<input checked type="checkbox" id="charset-symbol">
-						Symbols
-					</label>
-					<label for="charset-number">
-						<input checked type="checkbox" id="charset-number">
-						Numbers
-					</label>
-				</div>
-				<div class="button-container">
-					<button id="create-btn">Generate</button>
-					<button id="copy-btn">Copy</button>
-				</div>
-			</section>
+			<h1 id="main-title"><strong>Password</strong>Generator</h1>
+			<p id="main-desc"> Random and strong password generator online and you can save passwords </p>
+			<input placeholder="Your password will be here." id="result-input" type="text" disabled>
+			<div id="length-container">
+				<p> Length: </p>
+				<span id="input-value"> 8 </span>
+				<input type="range" name="passwordLength" id="range-selector" value="8" min="4" max="32" />
+			</div>
+			<div id="option-container">
+				<label for="charset-uppercase">
+					<input checked type="checkbox" id="charset-uppercase">
+					Uppercase
+				</label>
+				<label for="charset-lowercase">
+					<input checked type="checkbox" id="charset-lowercase">
+					Lowercase
+				</label>
+				<label for="charset-symbol">
+					<input checked type="checkbox" id="charset-symbol">
+					Symbols
+				</label>
+				<label for="charset-number">
+					<input checked type="checkbox" id="charset-number">
+					Numbers
+				</label>
+			</div>
+			<div class="button-container">
+				<button id="create-btn">Generate</button>
+				<button id="copy-btn">Copy</button>
+			</div>
 		</section>
 		<section id="password-tips">
 			<header>
